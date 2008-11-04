@@ -1,3 +1,14 @@
+base-files (4.0.6) unstable; urgency=low
+
+  * Changed the way wtmp, btmp and lastlog are handled. They are no longer
+    recreated at every base-files upgrade. Instead, they are only created
+    once, when base-files is installed by debootstrap. It is really not
+    base-files business to fiddle with those files, as it is documented
+    that removing them is the standard way to disable logging to them.
+    Closes: #488376.
+
+ -- Santiago Vila <sanvila@debian.org>  Tue, 04 Nov 2008 20:34:12 +0100
+
 base-files (4.0.5) unstable; urgency=low
 
   * Changed awk from Depends to Pre-Depends. Closes: #314571, #469552.

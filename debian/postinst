@@ -57,6 +57,18 @@ if [ "$1" = "configure" ] && [ "$2" = "" ]; then
   install_local_dir /usr/local/src
   install_local_dir /usr/local/etc
   ln -sf share/man /usr/local/man
+
+  if [ ! -f /var/log/wtmp ]; then
+    echo -n>/var/log/wtmp
+  fi
+  if [ ! -f /var/log/btmp ]; then
+    echo -n>/var/log/btmp
+  fi
+  if [ ! -f /var/log/lastlog ]; then
+    echo -n>/var/log/lastlog
+  fi
+  chown root:utmp /var/log/wtmp /var/log/btmp /var/log/lastlog
+  chmod 664 /var/log/wtmp /var/log/btmp /var/log/lastlog
 fi
 
 if [ "$1" = "configure" ] && [ "$2" != "" ]; then
@@ -77,8 +89,8 @@ preserve_directory cdrom
 preserve_directory initrd
 
 if [ ! -f /etc/adjtime ]; then
-  echo "0.000000 1217000000 0.000000" > /etc/adjtime
-  echo "1217000000" >> /etc/adjtime
+  echo "0.000000 1225000000 0.000000" > /etc/adjtime
+  echo "1225000000" >> /etc/adjtime
   echo "UTC" >> /etc/adjtime
   chmod 644 /etc/adjtime
 fi
@@ -86,17 +98,8 @@ fi
 if [ ! -f /var/run/utmp ]; then
   echo -n>/var/run/utmp
 fi
-if [ ! -f /var/log/wtmp ]; then
-  echo -n>/var/log/wtmp
-fi
-if [ ! -f /var/log/btmp ]; then
-  echo -n>/var/log/btmp
-fi
-if [ ! -f /var/log/lastlog ]; then
-  echo -n>/var/log/lastlog
-fi
-chown root:utmp /var/run/utmp /var/log/wtmp /var/log/btmp /var/log/lastlog
-chmod 664 /var/run/utmp /var/log/wtmp /var/log/btmp /var/log/lastlog
+chown root:utmp /var/run/utmp
+chmod 664 /var/run/utmp
 
 if [ ! -d /var/lib/dpkg ]; then
   mkdir -m 755 -p /var/lib/dpkg
