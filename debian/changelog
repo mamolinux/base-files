@@ -1,3 +1,11 @@
+base-files (5) unstable; urgency=low
+
+  * Changed issue, issue.net and debian_version to read "5.0".
+  * Changed FAQ so that users of lenny as stable will know what happens
+    when they upgrade to the new testing.
+
+ -- Santiago Vila <sanvila@debian.org>  Thu, 04 Dec 2008 10:04:04 +0100
+
 base-files (4.0.6) unstable; urgency=low
 
   * Changed the way wtmp, btmp and lastlog are handled. They are no longer
