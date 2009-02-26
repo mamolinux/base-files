@@ -89,8 +89,8 @@ preserve_directory cdrom
 preserve_directory initrd
 
 if [ ! -f /etc/adjtime ]; then
-  echo "0.000000 1228000000 0.000000" > /etc/adjtime
-  echo "1228000000" >> /etc/adjtime
+  echo "0.000000 1235000000 0.000000" > /etc/adjtime
+  echo "1235000000" >> /etc/adjtime
   echo "UTC" >> /etc/adjtime
   chmod 644 /etc/adjtime
 fi

@@ -36,7 +36,7 @@ binary-arch: build
 	cd debian/tmp && install -d `cat ../directory-list`
 	install -p -m 644 share/* debian/tmp/usr/share/base-files
 	install -p -m 644 licenses/* debian/tmp/usr/share/common-licenses
-	ln -s GFDL-1.2 debian/tmp/usr/share/common-licenses/GFDL
+	ln -s GFDL-1.3 debian/tmp/usr/share/common-licenses/GFDL
 	ln -s LGPL-3 debian/tmp/usr/share/common-licenses/LGPL
 	ln -s GPL-3 debian/tmp/usr/share/common-licenses/GPL
 	install -p -m 644 etc/* debian/tmp/etc
