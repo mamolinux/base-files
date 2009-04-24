@@ -11,7 +11,7 @@ Pre-Depends: awk
 Depends: base-passwd (>= 2.0.3.4)
 Essential: yes
 Priority: required
-Replaces: base, miscutils
+Replaces: base, miscutils, dpkg (<= 1.15.0)
 Description: Debian base system miscellaneous files
  This package contains the basic filesystem hierarchy of a Debian system, and
  several important miscellaneous files, such as /etc/debian_version,

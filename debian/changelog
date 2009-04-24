@@ -1,3 +1,18 @@
+base-files (5.0.0) unstable; urgency=low
+
+  * Drop README.base, remove-base, and the lines in postinst which checked
+    for the old base package being present.
+  * Do not fiddle with /etc/adjtime anymore, as it does not belong here.
+  * Added file /etc/dpkg/origins/debian from dpkg package, for the benefit
+    of Debian-derived distributions, as base-files is trivial to fork.
+    Hopefully, this will be one less reason to fork dpkg. Closes: #487437.
+  * Added dpkg (<= 1.15.0) to Replaces, because of the above.
+  * On initial install and also on upgrades, create /etc/dpkg/origins/default
+    as a symlink to /etc/dpkg/origins/debian, if it does not exist.
+  * Updated copyright year in copyright file.
+
+ -- Santiago Vila <sanvila@debian.org>  Fri, 24 Apr 2009 21:02:42 +0200
+
 base-files (5.0) unstable; urgency=medium
 
   * Changed issue, issue.net and debian_version to read "squeeze/sid".
