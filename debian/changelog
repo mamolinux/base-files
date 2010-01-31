@@ -1,3 +1,27 @@
+base-files (5.1) unstable; urgency=low
+
+  * Changed default permissions for /root to 700, as many admins consider
+    it should be more private than other home directories. Closes: #514794.
+  * Changed default permissions for /var/log/btmp to 660, to be in sync
+    with permissions set by logrotate. Closes: #547407.
+  * Do not export PS1 in /root/.bashrc, as it has bash escapes and it's
+    inherited to subshells that do not have to be bash. Closes: #567733.
+  * Added debian_chroot variable to default PS1 in /root/.bashrc.
+  * Comment out PS1 in /root/.bashrc anyway, as /etc/profile and
+    /etc/bash.bashrc already care about it. Closes: #443245.
+  * Comment out umask as well, as it's already in /etc/profile.
+  * Added /usr/local/games to default PATH in /etc/profile. Closes: #487105.
+  * While we are at it, comment out everything about PATH, as /etc/login.defs
+    should already care about this.
+  * Changed default /etc/profile so that it sources /etc/bash.bashrc
+    if the shell is bash. Closes: #275622.
+  * Drop \u part from default PS1 in /etc/profile, as it's only useful
+    for people with several non-root accounts. Most people are either root
+    or an ordinary user, so $ and # are enough to differentiate between them.
+  * Comment out PS1 setting in /etc/profile anyway, as we have bash.bashrc.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 31 Jan 2010 13:16:14 +0100
+
 base-files (5.0.0) unstable; urgency=low
 
   * Drop README.base, remove-base, and the lines in postinst which checked

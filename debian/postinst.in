@@ -74,7 +74,8 @@ if [ "$1" = "configure" ] && [ "$2" = "" ]; then
     echo -n>/var/log/lastlog
   fi
   chown root:utmp /var/log/wtmp /var/log/btmp /var/log/lastlog
-  chmod 664 /var/log/wtmp /var/log/btmp /var/log/lastlog
+  chmod 664 /var/log/wtmp /var/log/lastlog
+  chmod 660 /var/log/btmp
 fi
 
 if [ "$1" = "configure" ] && [ "$2" != "" ]; then
