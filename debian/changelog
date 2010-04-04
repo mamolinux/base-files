@@ -1,3 +1,19 @@
+base-files (5.2) unstable; urgency=low
+
+  * Added question in FAQ to document the fact that some configuration
+    files in /etc are never updated on upgrades. Closes: #571083.
+  * Changed default /usr/src to be root:root and 755. Closes: #573701.
+    The old permissions were of little benefit, and the user can still
+    change this after installing a new system anyway.
+  * Renamed FAQ to README and added a compatibility symlink.
+  * Removed obsolete Depends on base-passwd, as version 2.0.3.4 is more
+    than 10 years old and we don't support upgrades which skip releases.
+  * Dropped preinst completely, as it was there just to support upgrades
+    from very old releases (that we don't support anymore).
+  * Removed postinst code that supports upgrades from very old releases.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 04 Apr 2010 13:22:04 +0200
+
 base-files (5.1) unstable; urgency=low
 
   * Changed default permissions for /root to 700, as many admins consider

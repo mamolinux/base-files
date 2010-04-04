@@ -61,6 +61,31 @@ your /etc/apt/sources.list file is probably a much better way.
 
 * Other questions:
 
+Q. After upgrading my system recently, I noticed that some files from
+base-files do not match the ones which are installed on a fresh install
+of squeeze. Should I not be warned about that?
+
+A. Those files are configuration files, so they are completely under
+the control of the system admin. The files installed by base-files are
+just defaults. Changes in the default files are not important enough
+to warn the user, as it is also policy that prompting should be
+reduced to a minimum. This is also the reason they are not handled via
+dpkg's conffile mechanism.
+
+In either case, if you want to "upgrade" those files, just look at the
+postinst for base-files (i.e. /var/lib/dpkg/info/base-files.postinst)
+and you will see how they are created and where their master copies are:
+
+  install_from_default /usr/share/base-files/nsswitch.conf /etc/nsswitch.conf
+  install_from_default /usr/share/base-files/dot.profile   /root/.profile
+  install_from_default /usr/share/base-files/dot.bashrc    /root/.bashrc
+  install_from_default /usr/share/base-files/profile       /etc/profile
+  install_from_default /usr/share/base-files/motd          /etc/motd
+
+So, if you want your system to be as similar as possible to a newly
+installed squeeze system, you might want to sync these files manually.
+
+
 Q. Why isn't license "foo" included in common-licenses?
 
 A. I delegate such decisions to the policy group. If you want to

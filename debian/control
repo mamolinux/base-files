@@ -8,7 +8,6 @@ Package: base-files
 Provides: base
 Architecture: any
 Pre-Depends: awk
-Depends: base-passwd (>= 2.0.3.4)
 Essential: yes
 Priority: required
 Replaces: base, miscutils, dpkg (<= 1.15.0)

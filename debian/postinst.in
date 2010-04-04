@@ -23,13 +23,6 @@ install_directory() {
   fi
 }
 
-preserve_directory() {
-  if [ -f /etc/base-files.create-$1 ]; then
-    install_directory $1 755 root
-    rm -f /etc/base-files.create-$1
-  fi
-}
-
 if [ ! -e /etc/dpkg/origins/default ]; then
   if [ -e /etc/dpkg/origins/#VENDORFILE# ]; then
     ln -sf #VENDORFILE# /etc/dpkg/origins/default
@@ -78,23 +71,6 @@ if [ "$1" = "configure" ] && [ "$2" = "" ]; then
   chmod 660 /var/log/btmp
 fi
 
-if [ "$1" = "configure" ] && [ "$2" != "" ]; then
-  if [ ! -d /var/spool/mail ] && [ ! -L /var/spool/mail ]; then
-    if [ -f /etc/base-files.mailsymlink ]; then
-      ln -sf `cat /etc/base-files.mailsymlink` /var/spool/mail
-    else
-      install_directory var/spool/mail 2775 mail
-    fi
-  fi
-  if [ ! -L /var/mail ] && [ ! -d /var/mail ]; then
-    ln -sf spool/mail /var/mail
-  fi
-fi
-
-preserve_directory floppy
-preserve_directory cdrom
-preserve_directory initrd
-
 if [ ! -f /var/run/utmp ]; then
   echo -n>/var/run/utmp
 fi
@@ -116,7 +92,6 @@ if [ ! -f /usr/info/dir ] && [ ! -f /usr/share/info/dir ]; then
   chmod 644 /usr/share/info/dir
   chown root:root /usr/share/info/dir
 fi
-rm -f /etc/base-files.mailsymlink
 
 if [ "$1" = "configure" ] && [ "$2" != "" ]; then
   if [ -f /etc/motd ]; then
