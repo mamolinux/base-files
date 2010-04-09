@@ -1,3 +1,14 @@
+base-files (5.3) unstable; urgency=low
+
+  * Changed default /etc/profile so that it sources /etc/profile.d/*.sh
+    as mandated by the LSB section 16.2. Closes: #545756.
+    Package maintainers: Please don't use profile.d if you can avoid it,
+    as policy says "A program must not depend on environment variables
+    to get reasonable defaults".
+  * Removed questions about profile.d from FAQ.
+
+ -- Santiago Vila <sanvila@debian.org>  Fri, 09 Apr 2010 18:07:20 +0200
+
 base-files (5.2) unstable; urgency=low
 
   * Added question in FAQ to document the fact that some configuration

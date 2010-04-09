@@ -3,6 +3,7 @@ boot
 dev
 etc
 etc/default
+etc/profile.d
 etc/skel
 home
 lib

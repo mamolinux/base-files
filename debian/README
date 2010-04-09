@@ -1,34 +1,6 @@
 Frequently Asked Questions about base-files
 ===========================================
 
-* Questions about "profile.d":
-
-Q. Why does Debian not have a "profile.d" directory, like other distributions?
-
-A. Because no Debian package needs it. Debian policy says: "A program
-must not depend on environment variables to get reasonable defaults".
-This policy has been very successful so far. If the default install
-had a profile.d, people might think it's ok to use it for a Debian
-package, when in fact policy does not support such thing.
-
-Q. Ok, but I still think it would still be a nice thing to have, would
-not make sense to have a profile.d by default, even if no Debian
-package uses it?
-
-A. No. As explained before, there is the risk of assuming that it's
-"officially supported". If you need a profile.d directory, you may
-still create one in your machine and modify your /etc/profile
-accordingly to enable it. Since this is a configuration file,
-its contents will be preserved in upgrades.
-
-Q. Ok, but if I do that I will have to merge my changes every time
-the /etc/profile provided by base-files changes.
-
-A. That should not be a big problem. The default /etc/profile provided
-by base-files is quite minimal on purpose, and it is not expected to
-change drastically from one Debian release to the next one.
-
-
 * Questions about /etc/issue and /etc/debian_version:
 
 Q. I upgraded my system to the testing distribution and now my /etc/issue
