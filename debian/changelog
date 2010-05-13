@@ -1,3 +1,17 @@
+base-files (5.4) unstable; urgency=low
+
+  * Changed umask in default /etc/profile to 002, which has a little bit
+    more sense than 022 on systems like Debian having User Private Groups.
+    As usual for /etc/profile, only new installs will have the new default,
+    so nobody will be surprised by this on upgrades. Hopefully, this change
+    will be documented in the release notes for squeeze as well, for users
+    who install squeeze from scratch. Closes: #248140, #581434.
+  * Refresh GNU licenses from http://ftp.gnu.org/gnu/Licenses/, as they
+    have expanded the embedded tabs. Closes: #572245.
+  * Switch to "3.0 (native)" format.
+
+ -- Santiago Vila <sanvila@debian.org>  Thu, 13 May 2010 18:35:42 +0200
+
 base-files (5.3) unstable; urgency=low
 
   * Changed default /etc/profile so that it sources /etc/profile.d/*.sh
