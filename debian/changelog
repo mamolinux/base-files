@@ -1,3 +1,10 @@
+base-files (5.6) unstable; urgency=low
+
+  * Ordinary user accounts start at UID 1000 by default, but they also
+    end at 29999 by default. Modified default /etc/profile accordingly.
+
+ -- Santiago Vila <sanvila@debian.org>  Thu, 20 May 2010 11:34:34 +0200
+
 base-files (5.5) unstable; urgency=low
 
   * Changed default /etc/profile so that the new umask of 002 is only

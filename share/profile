@@ -25,7 +25,7 @@ if [ "$PS1" ]; then
   fi
 fi
 
-if [ "`id -u`" -ge 1000 ]; then
+if [ "`id -u`" -ge 1000 ] && [ "`id -u`" -le 29999 ]; then
   umask 002
 else
   umask 022
