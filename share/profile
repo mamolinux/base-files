@@ -25,11 +25,8 @@ if [ "$PS1" ]; then
   fi
 fi
 
-if [ "`id -u`" -ge 1000 ] && [ "`id -u`" -le 29999 ]; then
-  umask 002
-else
-  umask 022
-fi
+# The default umask is now handled by pam_umask.
+# See pam_umask(8) and /etc/login.defs.
 
 if [ -d /etc/profile.d ]; then
   for i in /etc/profile.d/*.sh; do

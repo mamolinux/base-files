@@ -1,3 +1,10 @@
+base-files (5.7) unstable; urgency=low
+
+  * Drop umask setting from /etc/profile, will be handled by pam_umask.
+    Closes: #583967.
+
+ -- Santiago Vila <sanvila@debian.org>  Tue, 01 Jun 2010 23:57:52 +0200
+
 base-files (5.6) unstable; urgency=low
 
   * Ordinary user accounts start at UID 1000 by default, but they also
