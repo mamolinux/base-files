@@ -1,3 +1,10 @@
+base-files (5.8) unstable; urgency=low
+
+  * Added GPL version 1 from http://ftp.gnu.org/gnu/Licenses/ as there
+    are a lot of packages still using it. Bug #436105.
+
+ -- Santiago Vila <sanvila@debian.org>  Mon, 05 Jul 2010 19:10:54 +0200
+
 base-files (5.7) unstable; urgency=low
 
   * Drop umask setting from /etc/profile, will be handled by pam_umask.
