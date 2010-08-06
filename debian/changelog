@@ -1,3 +1,11 @@
+base-files (5.9) unstable; urgency=medium
+
+  * Changed /etc/profile so that it defines PATH again. Closes: #571086.
+    We will have plenty of time to discuss about this after the release
+    of squeeze, but for now, this is the safe thing to do.
+
+ -- Santiago Vila <sanvila@debian.org>  Fri, 06 Aug 2010 19:37:40 +0200
+
 base-files (5.8) unstable; urgency=low
 
   * Added GPL version 1 from http://ftp.gnu.org/gnu/Licenses/ as there
