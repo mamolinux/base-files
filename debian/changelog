@@ -1,3 +1,12 @@
+base-files (5.10) unstable; urgency=medium
+
+  * Changed postinst to not reset /var/run/utmp permissions on every upgrade.
+    It is definitely not base-files business to change the permissions of
+    an already existing /var/run/utmp, as the system admin might have
+    changed them on purpose after the file was created. Closes: #601746.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 13 Nov 2010 13:01:12 +0100
+
 base-files (5.9) unstable; urgency=medium
 
   * Changed /etc/profile so that it defines PATH again. Closes: #571086.
