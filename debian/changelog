@@ -1,3 +1,10 @@
+base-files (6.0) unstable; urgency=low
+
+  * Changed issue, issue.net and debian_version to read "6.0".
+  * Updated README accordingly.
+
+ -- Santiago Vila <sanvila@debian.org>  Tue, 14 Dec 2010 22:20:38 +0100
+
 base-files (5.10) unstable; urgency=medium
 
   * Changed postinst to not reset /var/run/utmp permissions on every upgrade.
