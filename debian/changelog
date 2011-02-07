@@ -1,3 +1,9 @@
+base-files (6.1) unstable; urgency=medium
+
+  * Changed issue, issue.net and debian_version to read "wheezy/sid".
+
+ -- Santiago Vila <sanvila@debian.org>  Mon, 07 Feb 2011 19:24:00 +0100
+
 base-files (6.0) unstable; urgency=low
 
   * Changed issue, issue.net and debian_version to read "6.0".
