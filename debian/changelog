@@ -1,3 +1,10 @@
+base-files (6.3) unstable; urgency=low
+
+  * Dropped /run until everything else is ready for it. In particular,
+    udev should not blindly assume that it works just because it exists.
+
+ -- Santiago Vila <sanvila@debian.org>  Wed, 06 Apr 2011 20:33:02 +0200
+
 base-files (6.2) unstable; urgency=low
 
   * Added /run. Requested by Roger Leigh. Closes: #620157.
