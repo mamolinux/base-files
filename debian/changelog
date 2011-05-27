@@ -1,3 +1,18 @@
+base-files (6.4) unstable; urgency=low
+
+  * Added /run. Closes: #620157.
+  * On new installs:
+    - Create /run/lock (debian-installer will remove it but this will
+    ensure that it exists even on chroot environments).
+    - Symlink /var/run to /run.
+    - Symlink /var/lock to /run/lock.
+  * On upgraded systems, initscripts will handle the transition to /run.
+  * Added "Breaks: initscripts << (2.88dsf-13.3)" to ensure that initscripts
+    is upgraded first, as otherwise udev would break.
+  * Thanks a lot to Roger Leigh.
+
+ -- Santiago Vila <sanvila@debian.org>  Fri, 27 May 2011 14:25:42 +0200
+
 base-files (6.3) unstable; urgency=low
 
   * Dropped /run until everything else is ready for it. In particular,
