@@ -1,3 +1,10 @@
+base-files (6.5) unstable; urgency=low
+
+  * Modified default /etc/profile to not read /etc/bash.bashrc if bash
+    is invoked as /bin/sh. Closes: #632887.
+
+ -- Santiago Vila <sanvila@debian.org>  Fri, 29 Jul 2011 21:03:02 +0200
+
 base-files (6.4) unstable; urgency=low
 
   * Added /run. Closes: #620157.
