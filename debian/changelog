@@ -1,3 +1,14 @@
+base-files (6.6) unstable; urgency=low
+
+  * Switch to "files" instead of "compat" in default /etc/nsswitch.conf.
+    That was only useful for libc5. The new default will only take
+    effect for new installs. Thanks to Roger Leigh. Closes: #651356.
+  * Reword the very first question in base-files FAQ. Closes: #622200.
+  * When migrating /var/run and /var/lock, create relative symlinks
+    instead of absolute ones. Useful for chroots. Closes: #652301.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 03 Mar 2012 16:35:22 +0100
+
 base-files (6.5) unstable; urgency=low
 
   * Modified default /etc/profile to not read /etc/bash.bashrc if bash
