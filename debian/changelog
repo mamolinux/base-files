@@ -1,3 +1,11 @@
+base-files (6.7) unstable; urgency=low
+
+  * Switch to "compat" again in default /etc/nsswitch.conf. It is not
+    obsolete and it should not go away. Closes: #651356.
+    Thanks a lot to Petter Reinholdtsen.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 04 Mar 2012 01:02:00 +0100
+
 base-files (6.6) unstable; urgency=low
 
   * Switch to "files" instead of "compat" in default /etc/nsswitch.conf.
