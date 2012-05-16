@@ -1,0 +1,4 @@
+PRETTY_NAME="Debian #OSNAME# wheezy/sid"
+NAME="Debian #OSNAME#"
+ID=debian
+ANSI_COLOR="1;31"

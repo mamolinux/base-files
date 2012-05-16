@@ -1,3 +1,16 @@
+base-files (6.8) unstable; urgency=low
+
+  * Added /etc/os-release. Closes: #659853. Note: for stable releases
+    this file will look like it's suggested in the bug report above.
+    Also, like /etc/debian_version, this file should only be considered
+    meaningful for stable releases, which testing and unstable are not.
+  * By popular demand, make /etc/profile a conffile. Closes: #668871.
+  * Added /sys for all systems but the Hurd. Closes: #670091.
+  * Added /proc for the Hurd, as it's already being used.
+  * Added a lintian override for /root being 700.
+
+ -- Santiago Vila <sanvila@debian.org>  Thu, 17 May 2012 00:08:42 +0200
+
 base-files (6.7) unstable; urgency=low
 
   * Switch to "compat" again in default /etc/nsswitch.conf. It is not
