@@ -40,6 +40,7 @@ if [ "$1" = "configure" ] && [ "$2" = "" ]; then
   install_from_default /usr/share/base-files/nsswitch.conf /etc/nsswitch.conf
   install_from_default /usr/share/base-files/dot.profile   /root/.profile
   install_from_default /usr/share/base-files/dot.bashrc    /root/.bashrc
+  install_from_default /usr/share/base-files/profile       /etc/profile
   install_from_default /usr/share/base-files/motd          /etc/motd
   install_directory srv       755 root
   install_directory opt       755 root

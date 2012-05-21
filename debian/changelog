@@ -1,3 +1,11 @@
+base-files (6.9) unstable; urgency=low
+
+  * We can't make /etc/profile a conffile without triggering a piuparts
+    check which is considered to be serious. Sorry, /etc/profile
+    will be handled as before for now. Closes: #673767.
+
+ -- Santiago Vila <sanvila@debian.org>  Mon, 21 May 2012 15:12:06 +0200
+
 base-files (6.8) unstable; urgency=low
 
   * Added /etc/os-release. Closes: #659853. Note: for stable releases
