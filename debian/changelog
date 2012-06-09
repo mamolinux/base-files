@@ -1,3 +1,21 @@
+base-files (6.10) unstable; urgency=low
+
+  * Record md5sums of unmodified /etc/profile versions so that we can
+    upgrade it automatically, as it's done in Ubuntu.
+  * In the initial install, create /etc/motd.tail instead of /etc/motd,
+    as /etc/motd is converted to a symlink by initscripts and /etc/motd.tail
+    is since a long time the master copy to which the output of uname is added.
+    Remove postinst code which tries to update /etc/motd, as it does no longer
+    work and the file has not changed in a lot of time. Will add code to
+    update /etc/motd.tail based on md5sum if it ever changes in a future.
+  * Implement proposed transition plan for group staff in /usr/local.
+    The file /etc/staff-group-for-usr-local is now created on upgrades
+    from releases before 6.10 and (for now) also on initial install.
+  * Removed reference to /etc/nsswitch.conf in extended description, as
+    the file is being moved to libc-bin.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 09 Jun 2012 17:41:30 +0200
+
 base-files (6.9) unstable; urgency=low
 
   * We can't make /etc/profile a conffile without triggering a piuparts
