@@ -1,3 +1,10 @@
+base-files (6.11) unstable; urgency=medium
+
+  * Create /etc/motd instead of /etc/motd.tail, with same default contents,
+    as initscripts is now using /etc/motd again as a real file.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 17 Jun 2012 14:14:44 +0200
+
 base-files (6.10) unstable; urgency=low
 
   * Record md5sums of unmodified /etc/profile versions so that we can

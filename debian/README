@@ -52,7 +52,7 @@ and you will see how they are created and where their master copies are:
   install_from_default /usr/share/base-files/dot.profile   /root/.profile
   install_from_default /usr/share/base-files/dot.bashrc    /root/.bashrc
   install_from_default /usr/share/base-files/profile       /etc/profile
-  install_from_default /usr/share/base-files/motd.tail     /etc/motd.tail
+  install_from_default /usr/share/base-files/motd          /etc/motd
 
 So, if you want your system to be as similar as possible to a newly
 installed squeeze system, you might want to sync these files manually.
