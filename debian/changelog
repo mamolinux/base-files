@@ -1,3 +1,14 @@
+base-files (7.4) unstable; urgency=medium
+
+  * Updated FAQ to match current policy wording about common-licenses.
+    Thanks to Gioele Barabucci for the report. Closes: #723195.
+  * Moved /etc/os-release to /usr/lib/os-release. Put a symlink pointing to
+    the new place. Thanks to Marco d'Itri for the report. Closes: #753658.
+  * Changed BUG_REPORT_URL in os-release to https, as the BTS has moved.
+    Thanks to Martin Zobel-Helas for the report. Closes: #754455.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 19 Jul 2014 18:00:08 +0200
+
 base-files (7.3) unstable; urgency=medium
 
   * Added gshadow entry to default /etc/nsswitch.conf. Closes: #699090.
