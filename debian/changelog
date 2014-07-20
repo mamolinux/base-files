@@ -1,3 +1,11 @@
+base-files (7.5) unstable; urgency=medium
+
+  * Made /etc/os-release symlink to be relative, as an absolute symlink
+    seems to break boot when using a dracut initrd. Thanks to Daniel Schaal
+    for the report. Closes: #755394.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 20 Jul 2014 12:10:26 +0200
+
 base-files (7.4) unstable; urgency=medium
 
   * Updated FAQ to match current policy wording about common-licenses.
