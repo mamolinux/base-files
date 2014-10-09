@@ -1,7 +1,6 @@
 PRETTY_NAME="Debian #OSNAME# jessie/sid"
 NAME="Debian #OSNAME#"
 ID=debian
-ANSI_COLOR="1;31"
 HOME_URL="http://www.debian.org/"
 SUPPORT_URL="http://www.debian.org/support/"
 BUG_REPORT_URL="https://bugs.debian.org/"

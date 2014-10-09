@@ -1,3 +1,15 @@
+base-files (7.6) unstable; urgency=low
+
+  * By default, when the computer is booting, green and red colors are used
+    to signal that a service started successfully, or that it did not.
+    In this context, trying to use colors for something else might be
+    misleading or even confusing. For this reason, I'm dropping
+    ANSI_COLOR from /usr/lib/os-release. Closes: #758246.
+  * Clarified in the copyright file that the Artistic License currently
+    in common-licenses is actually the one coming from Perl. Closes: #764553.
+
+ -- Santiago Vila <sanvila@debian.org>  Thu, 09 Oct 2014 20:27:00 +0200
+
 base-files (7.5) unstable; urgency=medium
 
   * Made /etc/os-release symlink to be relative, as an absolute symlink
