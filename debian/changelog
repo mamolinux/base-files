@@ -1,3 +1,20 @@
+base-files (7.7) unstable; urgency=low
+
+  * Updated FAQ to explain that only /etc/debian_version is updated at
+    every point release, using Debian 8.x as an example, to be read by
+    users of jessie during its lifetime as stable. Closes: #621757.
+  * Changed default /etc/profile to source /etc/bash.bashrc after
+    processing profile.d stuff, not before. Closes: #698479.
+  * Drop comment lines about umask in /etc/profile, as it has been
+    there for enough time for everybody to take note.
+  * The directory /mnt is not included inside base-files.deb anymore.
+    Instead, it is created by postinst the very first time base-files
+    is installed (by debootstrap), or when upgrading from an earlier
+    base-files version. This should make the usual upgrade at every point
+    release to work even if /mnt is a stale mount point. Closes: #763405.
+
+ -- Santiago Vila <sanvila@debian.org>  Tue, 21 Oct 2014 21:20:14 +0200
+
 base-files (7.6) unstable; urgency=low
 
   * By default, when the computer is booting, green and red colors are used
