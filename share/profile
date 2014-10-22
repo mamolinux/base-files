@@ -8,15 +8,6 @@ else
 fi
 export PATH
 
-if [ -d /etc/profile.d ]; then
-  for i in /etc/profile.d/*.sh; do
-    if [ -r $i ]; then
-      . $i
-    fi
-  done
-  unset i
-fi
-
 if [ "$PS1" ]; then
   if [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
     # The file bash.bashrc already sets the default PS1.
@@ -31,4 +22,13 @@ if [ "$PS1" ]; then
       PS1='$ '
     fi
   fi
+fi
+
+if [ -d /etc/profile.d ]; then
+  for i in /etc/profile.d/*.sh; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
 fi
