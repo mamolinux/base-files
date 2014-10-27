@@ -1,3 +1,11 @@
+base-files (7.10) unstable; urgency=low
+
+  * Dropped "chown root:root" lines in postinst, as they are
+    completely redundant. The postinst script is run by root.
+    This might also help as a workaround for Bug#766459.
+
+ -- Santiago Vila <sanvila@debian.org>  Mon, 27 Oct 2014 13:35:32 +0100
+
 base-files (7.9) unstable; urgency=low
 
   * The change introduced in version 7.7 regarding /mnt seems to break
