@@ -122,13 +122,12 @@ fi
 if [ "$1" = "configure" ] && [ "$2" != "" ]; then
   update_to_current_default profile
   update_to_current_default nsswitch.conf
+  if dpkg --compare-versions "$2" lt-nl "7.7"; then
+    install_directory mnt 755 root
+  fi
 fi
 
 if dpkg --compare-versions "$2" lt-nl "6.10"; then
   install_from_default /usr/share/base-files/staff-group-for-usr-local \
     /etc/staff-group-for-usr-local
-fi
-
-if dpkg --compare-versions "$2" lt-nl "7.7"; then
-  install_directory mnt 755 root
 fi

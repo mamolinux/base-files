@@ -1,3 +1,17 @@
+base-files (7.9) unstable; urgency=low
+
+  * The change introduced in version 7.7 regarding /mnt seems to break
+    the ability of debootstrap currently in wheezy to create a sid chroot.
+    The case of initial install of /mnt is already handled by postinst line
+    "install_directory mnt 755 root" inside the big "if" block that
+    creates a bunch of other things, so we can restrict re-creating the /mnt
+    directory on upgrades to the case when we are really upgrading.
+    Therefore, the code is moved to the same "if" block where /etc/profile
+    and /etc/nsswitch.conf are upgraded to their new defaults when unchanged.
+    This might help as a workaround for Bug#766459.
+
+ -- Santiago Vila <sanvila@debian.org>  Mon, 27 Oct 2014 12:33:22 +0100
+
 base-files (7.8) unstable; urgency=low
 
   * The /etc/profile.d mechanism may be used to override PS1 setting
