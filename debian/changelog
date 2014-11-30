@@ -1,3 +1,20 @@
+base-files (8) unstable; urgency=low
+
+  * Release for jessie as stable:
+  - Use "8" as version in /etc/issue and /etc/issue.net. As usual, this
+    is never expected to change once that jessie is released as Debian 8.
+  - Use 8.0 as version in /etc/debian_version. As usual, this is expected
+    to change at every point release.
+  - Changed PRETTY_NAME in /usr/lib/os-release, adding 8 as version number
+    and "(jessie)" as codename. Added also VERSION_ID and VERSION.
+    This file, /usr/lib/os-release, is not expected to change either.
+  - Updated README (jessie -> stretch).
+  * Packages are not expected to rely on the contents of any of these
+    files, but if they do, they might better break now while we can still
+    fix them.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 30 Nov 2014 13:36:12 +0100
+
 base-files (7.10) unstable; urgency=low
 
   * Dropped "chown root:root" lines in postinst, as they are

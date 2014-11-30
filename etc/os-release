@@ -1,5 +1,7 @@
-PRETTY_NAME="Debian #OSNAME# jessie/sid"
+PRETTY_NAME="Debian #OSNAME# 8 (jessie)"
 NAME="Debian #OSNAME#"
+VERSION_ID="8"
+VERSION="8 (jessie)"
 ID=debian
 HOME_URL="http://www.debian.org/"
 SUPPORT_URL="http://www.debian.org/support/"
