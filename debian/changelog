@@ -1,3 +1,12 @@
+base-files (9) unstable; urgency=medium
+
+  * Changed issue, issue.net, debian_version and os-release to read
+    "stretch/sid", and dropped VERSION and VERSION_ID from os-release.
+  * Changed HOME_URL and SUPPORT_URL is os-release from http to https,
+    as those are the preferred URLs now.
+
+ -- Santiago Vila <sanvila@debian.org>  Thu, 30 Apr 2015 12:00:50 +0200
+
 base-files (8) unstable; urgency=low
 
   * Release for jessie as stable:
