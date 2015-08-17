@@ -1,3 +1,16 @@
+base-files (9.3) unstable; urgency=medium
+
+  * Change /usr/share/base-files/dot.profile (the default /root/.profile)
+    to not fail with new mesg behaviour in stretch. Closes: #794727.
+  * Add extra code in postinst so that people who never modified
+    their /root/.profile from jessie get the fixed version. This is
+    done by the update_to_current_default() function, which is now
+    more general and allows updating files not in /etc.
+  * While we are at it, modify install_from_default() function so that
+    it's called in the same simplified way as update_to_current_default().
+
+ -- Santiago Vila <sanvila@debian.org>  Mon, 17 Aug 2015 17:50:38 +0200
+
 base-files (9.2) unstable; urgency=medium
 
   * Create md5sums in a reproducible way.
