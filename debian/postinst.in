@@ -112,7 +112,7 @@ if [ ! -f /var/lib/dpkg/status ]; then
 fi
 
 if [ ! -f /usr/info/dir ] && [ ! -f /usr/share/info/dir ]; then
-  install_from_default /usr/share/base-files/info.dir /usr/share/info/dir
+  install_from_default info.dir /usr/share/info/dir
   chmod 644 /usr/share/info/dir
 fi
 
@@ -126,6 +126,6 @@ if [ "$1" = "configure" ] && [ "$2" != "" ]; then
 fi
 
 if dpkg --compare-versions "$2" lt-nl "6.10"; then
-  install_from_default /usr/share/base-files/staff-group-for-usr-local \
+  install_from_default staff-group-for-usr-local \
     /etc/staff-group-for-usr-local
 fi
