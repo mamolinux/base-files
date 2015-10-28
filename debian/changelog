@@ -1,3 +1,10 @@
+base-files (9.5) unstable; urgency=medium
+
+  * os-release: Drop trailing slash in SUPPORT_URL variable, as the URL
+    is not supposed to have it. Closes: #781809, #800791.
+
+ -- Santiago Vila <sanvila@debian.org>  Wed, 28 Oct 2015 23:29:08 +0100
+
 base-files (9.4) unstable; urgency=medium
 
   * Fix two install_from_default() calls in postinst that were still
