@@ -1,3 +1,15 @@
+base-files (9.6) unstable; urgency=low
+
+  * Add lintian override for /etc/os-release.
+  * Add lintian overrides for /usr/share/common-licenses.
+  * Standards-Version: 3.9.7 (no special changes for this).
+  * Switch to dh. Hopefully this should make the package easier
+    to fork. Closes: #693423.
+  * Change default /etc/profile to not warn about possibly undefined
+    variables PS1 and BASH. Closes: #776154.
+
+ -- Santiago Vila <sanvila@debian.org>  Fri, 04 Mar 2016 17:33:40 +0100
+
 base-files (9.5) unstable; urgency=medium
 
   * os-release: Drop trailing slash in SUPPORT_URL variable, as the URL
