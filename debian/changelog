@@ -1,3 +1,11 @@
+base-files (10.3) unstable; urgency=medium
+
+  * Add Breaks: debian-security-support (<< 2019.04.25). Closes: #928172.
+    This is the first version of debian-security-support which does not break
+    when /etc/debian_version contains a string in the form "10.x".
+
+ -- Santiago Vila <sanvila@debian.org>  Mon, 13 May 2019 22:25:32 +0200
+
 base-files (10.2) unstable; urgency=medium
 
   * Release candidate for buster as stable:
