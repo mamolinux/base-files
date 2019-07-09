@@ -1,3 +1,12 @@
+base-files (11) unstable; urgency=medium
+
+  * Change issue, issue.net, debian_version and os-release to read
+    "bullseye/sid".
+  * Drop VERSION, VERSION_ID and CODENAME from os-release.
+  * Make "mesg n" silent in default /root/.profile. Closes: #930654.
+
+ -- Santiago Vila <sanvila@debian.org>  Tue, 09 Jul 2019 12:05:50 +0200
+
 base-files (10.3) unstable; urgency=medium
 
   * Add Breaks: debian-security-support (<< 2019.04.25). Closes: #928172.
