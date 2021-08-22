@@ -1,3 +1,15 @@
+base-files (12) unstable; urgency=medium
+
+  * Do not create /var/run/utmp in postinst, as /var/run is
+    ephemeral and it does not make sense. Closes: #989725.
+  * Do not create /var/lib/dpkg/status if missing anymore,
+    as dpkg already does that. Closes: #989726.
+  * Change issue, issue.net, debian_version and os-release to read
+    "bookworm/sid". Closes: #992369.
+  * Drop VERSION, VERSION_ID and CODENAME from os-release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 22 Aug 2021 19:00:00 +0200
+
 base-files (11.1) unstable; urgency=medium
 
   * Use https where appropriate, namely, origins/debian (currently used)
