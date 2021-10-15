@@ -5,10 +5,6 @@ install_local_dir() {
   if [ ! -d $1 ]; then
     mkdir -p $1
   fi
-  if [ -f /etc/staff-group-for-usr-local ]; then
-    chown root:staff $1 2> /dev/null || true
-    chmod 2775 $1 2> /dev/null || true
-  fi
 }
 
 install_from_default() {
@@ -54,7 +50,7 @@ if [ "$1" = "configure" ] && [ "$2" = "" ]; then
   install_from_default dot.profile   /root/.profile
   install_from_default dot.bashrc    /root/.bashrc
   install_from_default profile       /etc/profile
-  install_from_default motd          /etc/motd
+  install_from_default networks      /etc/networks
   install_directory mnt       755 root
   install_directory srv       755 root
   install_directory opt       755 root
@@ -101,9 +97,36 @@ if [ -d /usr/share/info ] && [ ! -f /usr/info/dir ] && [ ! -f /usr/share/info/di
 fi
 
 if [ "$1" = "configure" ] && [ "$2" != "" ]; then
+  # If we're upgrading base-files, remove the upgrade-available flag
+  # maintained by update-manager, and rerun the release-upgrade check
+  # immediately (in the background) to update the flag.
+  rm -f /var/lib/update-notifier/release-upgrade-available
+  if [ -x /usr/lib/update-manager/check-new-release ]; then
+    /usr/lib/update-manager/check-new-release -q > /var/lib/update-notifier/release-upgrade-available  &
+  fi
+
   update_to_current_default profile       /etc/profile
   update_to_current_default dot.profile   /root/.profile
   if dpkg --compare-versions "$2" lt-nl "7.7"; then
     install_directory mnt 755 root
   fi
 fi
+
+# special case of having /etc/default/motd-news removed by hand
+# signal the motd-news-config package that this happened, so that
+# it does not put back the file with default contents which would
+# re-enable motd-news
+motd_news_config="/etc/default/motd-news"
+# only in upgrades, never fresh installs like in debootstrap
+if [ "$2" != "" ] && \
+   [ ! -e ${motd_news_config} ] && \
+   [ ! -e ${motd_news_config}.dpkg-remove ] && \
+   [ ! -e ${motd_news_config}.dpkg-backup ]; then
+      # The .wasremoved file only matters if ubuntu-server is installed,
+      # because that's what will pull in motd-news-config
+      if dpkg -l ubuntu-server 2>/dev/null | grep -q ^i; then
+        touch ${motd_news_config}.wasremoved
+      fi
+fi
+
+#DEBHELPER#

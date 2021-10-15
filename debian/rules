@@ -8,13 +8,16 @@ ifeq ($(DEB_HOST_GNU_SYSTEM),gnu)
   OSNAME=GNU/Hurd
 endif
 
-VENDORFILE = debian
+VENDORFILE = ubuntu
 DESTDIR = debian/base-files
 
 %:
 	dh $@
 
-override_dh_auto_build:
+locale-check:
+	$(CC) $(CFLAGS) $(LDFLAGS) -o locale-check locale-check.c
+
+override_dh_auto_build: locale-check
 	sh debian/check-md5sum-etc profile
 	sed -e "s&#OSNAME#&$(OSNAME)&g" debian/copyright.in > debian/copyright
 	sed -e "s/#VENDORFILE#/$(VENDORFILE)/g" debian/postinst.in > debian/postinst
@@ -22,9 +25,13 @@ override_dh_auto_build:
 override_dh_auto_install:
 	install -p -m 644 etc/*      $(DESTDIR)/etc
 	install -p -m 755 motd/*     $(DESTDIR)/etc/update-motd.d
+	install -p -m 644 debian/motd-news.service $(DESTDIR)/lib/systemd/system/
+	install -p -m 644 debian/motd-news.timer $(DESTDIR)/lib/systemd/system/
 	install -p -m 644 licenses/* $(DESTDIR)/usr/share/common-licenses
 	install -p -m 644 origins/*  $(DESTDIR)/etc/dpkg/origins
 	install -p -m 644 share/*    $(DESTDIR)/usr/share/base-files
+	install -p -m 644 profile.d/* $(DESTDIR)/etc/profile.d
+	install -p -m 755 locale-check $(DESTDIR)/usr/bin
 ifeq ($(DEB_HOST_GNU_SYSTEM),gnu)
 	rmdir $(DESTDIR)/sys
 endif
@@ -35,6 +42,10 @@ endif
 	sed -e "s&#OSNAME#&$(OSNAME)&g" etc/os-release > $(DESTDIR)/etc/os-release
 	mv $(DESTDIR)/etc/os-release $(DESTDIR)/usr/lib/os-release
 	ln -s ../usr/lib/os-release $(DESTDIR)/etc/os-release
+
+override_dh_installsystemd:
+	dh_installsystemd -pbase-files motd-news.timer
+	dh_installsystemd -pbase-files motd-news.service
 
 override_dh_link:
 	dh_link -X os-release
